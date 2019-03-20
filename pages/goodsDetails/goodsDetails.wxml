@@ -1,0 +1,195 @@
+<!--pages/goodsDetails/goodsDetails.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="{{info==false?'':'page'}}">
+  <view class='main_header'>
+    <swiper indicator-dots interval="3000" duration="1000" autoplay='true' circular>
+      <block wx:for="{{imgUrls}}" wx:key="{{itemName}}" wx:for-item="itemName">
+        <swiper-item>
+          <image src="{{itemName}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='p_20 f_34 flex_cb'>
+    <view class='details_left'>
+      <view class='sheng2 details_title f_32'>{{pro_info.name}}</view>
+      <view class='flex_i mt_20'>
+        <view class="price c_ea5">￥{{pro_info.price}}</view>
+        <view class="text_l c_999 ml_20 f_30" wx:if="{{pro_info.is_discount==1}}">￥{{pro_info.discount_price}}</view>
+        <view class='isCollage' wx:if="{{status==2}}">拼团立减{{pro_info.discount_price-pro_info.price}}元</view>
+        <view class='isSeckill f_28 c_f ml_10' wx:if="{{status==1}}">
+          剩余{{times}}
+        </view>
+      </view>
+      <view class='mt_20 flex_i'>
+        <view wx:if="{{status==2}}" class='f_28 tuanText mr_20'>{{tuanNum}}人成团</view>
+        <view class='c_999 f_24'>销量：{{pro_info.sales_num}}</view> 
+      </view> 
+    </view>
+    <view class='details_right f_28 flex_af c_999'>
+      <i class="iconfont icon-lvsefenkaicankaoxianban- mb_10"></i>
+      分享
+      <button open-type='share' class='details_btn'></button>
+    </view>
+  </view>
+  <view class='p_20 bor_top f_30'>
+    运费： 
+    <text wx:if="{{pro_info.free_postage==1}}">包邮</text> 
+    <text wx:else>{{pro_info.postage}}元</text> 
+  </view>
+  <view class='bor_top' wx:if="{{status==2}}">
+    <view class='p_20 f_30 bor_b'>拼团玩法</view>
+    <view class='flex_i c_999'>
+      <view class='flex_faj wan_item'>
+        <i class="iconfont icon-qianbao"></i>
+        支付开团或参团
+      </view>
+      <view class='flex_faj wan_item'>
+        <i class="iconfont icon-qianbao"></i>
+        邀请好友参团
+      </view>
+      <view class='flex_faj wan_item'>
+        <i class="iconfont icon-qianbao"></i>
+        人数达到分别发货
+      </view>
+      <view class='flex_faj wan_item'>
+        <i class="iconfont icon-qianbao"></i>
+        人数不够自动退款
+      </view>
+    </view>
+  </view>
+  <view class='bor_top' wx:if="{{status==2&&collageList!=''}}">
+    <view class='p_20 f_30 bor_b'>{{collageList.length}}人在拼单，可直接参与</view>
+    <view class='text_body p_20'>
+      <swiper interval="3000" duration="1000" autoplay='true' circular vertical>
+        <block wx:for="{{collageList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+          <swiper-item class="flex_cb" hidden="{{itemName.time==0?'hidden':''}}">
+            <view class='flex_i'>
+              <image src='{{itemName.head_img}}' class='collage_img'></image>
+              <text class='sheng collage_name f_32 ml_20'>{{itemName.name}}</text>
+            </view>
+            <view class='flex_i'>
+              <view class='collage_cha f_28 ml_20'>
+                <view>还差<text class='c_ea5'>{{itemName.num}}人</text>拼成</view>
+                <view class='collage_last'>剩余{{itemName.date}}</view>
+              </view>
+              <view class='toCollage f_28 c_f ml_20' bindtap='buy' data-order_id='{{itemName.order_id}}' data-istuan='1'>去拼单</view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <view class='bor_top f_32 goods_body'>
+    <view class="nav-scroll">
+      <view class="scroll-view_H">
+        <view wx:for="{{HeaderList}}" wx:key="item" data-type='{{item.type}}' data-id="{{item.id}}" bindtap='toList' class='nav-name'>
+          <text class="{{item.id == currentId ? 'nav-hover' : ''}} p_20">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='content'>
+      <view wx:if="{{currentId == 1}}" class='p_20'>
+        <template is="wxParse" data="{{wxParseData:details.nodes}}" />
+      </view>
+      <view wx:else>
+        <view wx:if="{{commentrList!=''}}">
+          <view wx:for="{{commentrList}}" wx:key="item" class='pin_item flex bor_b p_20'>
+            <image src='{{item.head_img}}' class='tou'></image>
+            <view class='pin_wen f_32 flex'>
+              <view class='pin_left'>
+                <view class='name mb_10'>{{item.name}}</view>
+                <view class='mb_10 f_30'>{{item.content}}</view>
+              </view>
+              <view class='f_28 c_999'>
+                <view>{{item.create_time}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:else class='flex_af c_999 f_32'>
+          <image src='../../images/zanwu.png' class='zanwu mb_20'></image>
+          暂无评论
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='goods_footer flex_i f_28'>
+    <navigator class='flex_af footer_item' open-type='switchTab' url='../index/index'>
+      <i class="iconfont icon-shouye"></i>
+      首页
+    </navigator>
+    <view class='flex_af footer_item bor_l' bindtap='collect' data-collect="{{collect}}" hidden='{{status==1?true:false}}'>
+      <i class="iconfont icon-collect-border {{collect == 1?'active':''}}"></i>
+      收藏
+    </view>
+    <view class='flex_af footer_item bor_l'>
+      <i class="iconfont icon-renwu"></i>
+      客服
+      <button open-type="contact" class="details_btn">咨询</button>
+    </view>
+    <view wx:if="{{status!=2}}" class='footer_item c_f mall_left flex_faj pr'>
+      <form report-submit='true' class='formBtn' bindsubmit='buy' data-cart="1">
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      加入购物车
+    </view>
+    <view class='footer_item c_f mall_left flex_faj pr' wx:else>
+      <form report-submit='true' class='formBtn' bindsubmit='buy'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <view>{{pro_info.discount_price}}</view>
+      单独购买
+    </view>
+    <view wx:if="{{status!=2}}" class='footer_item c_f mall_right flex_faj pr'>
+      <form report-submit='true' class='formBtn' bindsubmit='buy'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      立即购买
+    </view>
+    <view class='footer_item c_f mall_right flex_faj pr' wx:else>
+      <form report-submit='true' class='formBtn' bindsubmit='buy' data-istuan='1'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <view>{{pro_info.price}}</view>
+      发起拼单
+    </view>
+  </view>
+  <navigator class='gouwuche bg_f flex_faj' url='../cart/cart' open-type='switchTab'><i class="iconfont icon-gouwuche"></i></navigator>
+</view>
+<view class='info_con' hidden="{{!info}}">
+  <view class='info_bg'></view>
+  <view class='infoBody'>
+    <image class='info_img' src='{{pro_info.thumb}}'></image>
+    <view class='info_title'>
+      <view class='c_ea5'>￥{{shopMoney}}</view>
+      <view class='sheng f_28 mt_10'>{{shopContent}}</view>
+    </view>
+    <i class="iconfont icon-cha c_999" bindtap='close'></i>
+    <view class='info_body bor_t'>
+      <view class='info_specifications bor_b p_20' wx:if="{{checkboxList!=''}}">
+        <view wx:for="{{attrValueList}}" wx:for-item="attrValueObj" wx:for-index="attrIndex" wx:key="attrValueObj">
+          <view class='f_30 mb_10 mt_10'>{{attrValueObj.attrKey}}</view>
+          <view class='flex_f'>
+              <view class="info_item {{attrIndex==firstIndex || attrValueObj.attrValueStatus[valueIndex]?(value==attrValueObj.selectedValue?'active':''):'attr_value_disabled'}} sheng" bindtap="selectAttrValue" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}"
+          data-value="{{value}}" data-key="{{attrValueObj.attrKey}}" data-code="{{attrCode}}" data-index="{{attrIndex}}" data-selectedvalue="{{attrValueObj.selectedValue}}" wx:for="{{attrValueObj.attrValues}}" wx:for-item="value" wx:for-index="valueIndex" wx:key="value">{{value}}</view> 
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='p_20 f_30 flex_cb cart-box'>
+      数量
+      <view class='flex_i'>
+        <text class='mr_20 c_999'>库存：{{shopStock}}</text> 
+        <view class="num-box">
+          <view class="btn-groups">
+            <view class="goods-btn btn-minus" data-num="{{num}}" bindtap="subtraction">—</view>
+            <view class="num">{{num}}</view>
+            <view class="goods-btn btn-add f_32" data-num="{{num}}" bindtap="addtion">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='info_footer c_f f_32' bindtap='comfirm' data-comfirmcart='{{comfirmCart}}' data-comfirmistuan="{{comfirmIsTuan}}" data-comfirmorderid="{{comfirmOrderId}}">确定</view>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<!--pages/distributionCommission/distributionCommission.wxml-->
+<view class='p_40 f_34 bor_b'>
+  账户可提现余额：{{balance}}元
+</view>
+<view class='p_40 f_34 flex_i'>
+  <view class='c_ea5 mr_10'>￥</view><input type="number" placeholder='请输入金额' bindinput='bindinput' value='{{value}}'></input>
+</view>
+<view class='bor_top f_28 p_20'>提现金额不能小于1.00元</view>
+<view class='bor_top p_20 bor_bom'>
+  <view class='f_34'>提现方式</view>
+  <view class='s_parameterWrap flex_i p_20'>
+    <block wx:for="{{modeList}}" wx:key="modeList">
+      <view class='s_parameterInfo text-over {{item.status==0?"checked":""}} flex_i f_32 mr_20' data-id='{{item.id}}' bindtap='parameterTap'>
+        <i class="iconfont icon-changyonglogo28 mr_10 color" wx:if="{{item.id==1}}"></i>
+        <i class="iconfont icon-changyonglogo30 mr_10 c_5e8" wx:if="{{item.id==3}}"></i>
+        <i class="iconfont icon-gold mr_10 c_f68" wx:if="{{item.id==2}}"></i>
+        <text>{{item.type}}</text> 
+      </view>
+    </block>
+  </view>
+</view>
+<view class='f_32' wx:if="{{id==1||id==3}}">
+  <view class='flex_i p_20 bor_b'>
+    <view class='mr_20'>
+      姓名 <text class='c_ea5'>*</text>
+    </view>
+    <input placeholder='请输入正确的姓名' bindinput='bindName' value='{{name}}' type='text'></input>
+  </view>
+  <view class='flex_i p_20 bor_bom'>
+    <view class='mr_20'>
+      账号 <text class='c_ea5'>*</text>
+    </view>
+    <input placeholder='请输入正确微信账号' wx:if="{{id==1}}" bindinput='bindNumber' value='{{accountNumber}}' type='text'></input>
+    <input placeholder='请输入正确支付宝账号' wx:if="{{id==3}}" bindinput='bindNumber' value='{{accountNumber}}' type='text'></input>
+  </view>
+</view>
+<button class='s_foot disHeader f_32 {{type==0?"on":""}}' bindtap='add'>我要提现</button>

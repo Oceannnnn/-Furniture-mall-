@@ -1,0 +1,213 @@
+/**index.wxss**/
+@import "../../font/iconfont.wxss";
+page{
+  width: 100%;
+  min-height: 100vh;
+}
+.main_header{
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+}
+.main_header swiper{
+  height:450rpx; 
+  width: 100%;
+}
+.main_header swiper image{
+  width: 100%;
+  height: 100%;
+}
+.main_header .text{
+  position: absolute;
+  font-size: 30rpx;
+  top: 2%;
+  left: 2%;
+  color: #fff;
+  padding: 10rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius:10rpx; 
+}
+.text_body{
+  width: 100%;
+}
+.text_body swiper{
+  width: 86%;
+  height: 50rpx;
+}
+.guang{
+  position: absolute;
+  padding: 10rpx 20rpx;
+  top: 8%;
+  left: 2%;
+  z-index: 11;
+  color: #fff;
+  font-size: 28rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10rpx;
+}
+.items-body{
+  justify-content: space-between;
+}
+.advert image{
+  height: 188rpx;
+  width: 100%;
+}
+.item_list{
+  width: 50%;
+  box-sizing: border-box;
+}
+.item_list:nth-child(odd) {border-right: 1px solid #CCC}
+.lazy{
+  width: 100%;
+  height: 330rpx;
+}
+.iconfont {
+  font-size: 40rpx;
+}
+.iconfont.icon-gonggao{
+  color: #FF5500;
+}
+.quick_item{
+  width: 20%;
+  margin-bottom: 20rpx;
+}
+.icon_item image {
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+}
+.quick_body,.text_body{
+  padding: 20rpx 0;
+}
+.quick_body{
+  flex-wrap: wrap;
+}
+.special_column .iconfont.left{
+  color: #EA5D34;
+}
+.couponList{
+  background: #ff8194;
+  display:inline-block;
+  margin: 0 10rpx;
+  max-height: 90rpx;
+}
+.couponList.zhekou{
+  background: #FA713E;
+}
+.couponList.on{
+  background: #CCC;
+}
+.couponList .money{
+  font-size: 40rpx;
+  font-weight: 700;
+}
+.couponList .ling{
+  float: left;
+}
+.scroll-view_H{
+  white-space:nowrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+.conpon_left{
+  float: left;
+  border-right:1px solid #fff;
+  padding: 0 20rpx 0 0;
+}
+.tool_icon .image{
+  height: 30px;
+  width: 30px;
+  position: fixed;
+  /* border:1px solid #333;
+  border-radius:50%;
+  padding:10rpx; */
+}
+.tool_icon .kefu{
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+  position: fixed;
+}
+
+.tool_icon image.img-plus-style {
+  bottom: 10px;
+  right: 15px;
+  z-index: 100;
+}
+.img-style {
+  bottom: 100rpx;
+  right: 30px;
+  opacity: 0;
+}
+.details_btn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.img_li{
+  width: 100%;
+  height: 100%;
+}
+.redrnvelopes{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+.red_shu{
+  width: 1px;
+  height: 200rpx;
+  background: #fff;
+}
+.red_img{
+  width: 70%;
+  height: 650rpx;
+  position: relative;
+}
+.red_img image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.red_iocn{
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 50%;
+  margin-top: 40rpx;
+  width:40rpx;
+  height:40rpx;
+  line-height: 40rpx;
+}
+.goRedrnvelopes{
+  position: absolute;
+  width: 100%;
+  height: 100rpx;
+  bottom: 50rpx;
+  left: 0;
+}
+/* .contentText{
+  max-height: 80rpx;
+} */
+.t_text{
+  border-bottom: 2px solid #000;
+}
+.searchBox{
+  border: 1px solid rgb(122, 122, 122);
+  border-radius: 10rpx;
+  padding: 8rpx 20rpx;
+}
+.searchBox input{
+  width: 90%;
+}
+.arrow{
+  width: 46rpx;
+  height: 46rpx;
+}

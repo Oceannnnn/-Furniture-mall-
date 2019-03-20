@@ -1,0 +1,21 @@
+/* pages/payResults/payResults.wxss */
+.result{
+  margin-top: 80rpx;
+}
+.item{
+  width: 46%;
+  padding: 15rpx 0;
+  margin: 80rpx 5% 0;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.zhu{
+  margin: 20rpx 5% 0;
+}
+.item.on{
+  color: #E93D3B;
+  border: 1px solid #E93D3B;
+}
+.item.active{
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+<!--pages/logistics/logistics.wxml-->
+<view class='p_20 mt_20'>
+  <view class='f_32 bor_b'>
+    <view class='mb_20'>物流公司：<text class='f_28'>{{name}}</text></view>
+    <view class='mb_40'>物流单号：<text class='f_28'>{{num}}</text></view>
+  </view>
+  <view class='mt_20 f_32'>物流信息：</view>
+  <view wx:for="{{logisticsList}}" wx:key="{{itemName}}" wx:for-item="itemName" wx:index="{{index}}" class='f_28 c_999 p_20 flex_i'>
+    <view class='flex_faj'>
+      <view class='yuan {{index==0?"on":""}}'></view>
+      <view class='xian'></view>
+    </view>
+    <view class='ml_20'>
+      <view>{{itemName.context}}</view>
+      <view>{{itemName.time}}</view>
+    </view>
+  </view>
+</view>

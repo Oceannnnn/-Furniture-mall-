@@ -1,0 +1,79 @@
+<view wx:if="{{login_state==1}}">
+  <view wx:if="{{list!=''||downList!=''}}" class='cartBody'>
+    <view class='f_32 flex_cb guanHeader'>
+      <text class='ml_20'>共{{cartNum}}件宝贝</text> 
+      <view class='gaunli f_32 c_ea5 mr_20' bindtap='showDelBtn' data-select="{{allSelect=='circle'?'success':'circle'}}">
+        <text wx:if="{{showDelBtn}}">管理</text>
+        <text wx:else>完成</text>
+      </view>
+    </view>
+    <view class="cart-box bor_top">
+      <view class="item bor_b p_20 flex_i" wx:for="{{list}}" wx:key="list">
+        <icon type="{{item.select}}" color="#E90606" size="20" data-pid="{{item.pid}}" data-num='{{item.num}}' data-priceid='{{item.priceId}}' data-id="{{item.id}}" data-index="{{index}}" data-select="{{item.select}}" bindtap="change" data-showdelbtn='0' />
+        <image src="{{item.pic}}" class="goods-img ml_20" mode="widthFix" data-id='{{item.pid}}' bindtap='details'></image>
+        <view class="goods-info ml_20">
+          <view class="row mb_20 f_32 flex_cb">
+            <view class="goods-name sheng">{{item.name}}</view>
+            <text class="goods-price">￥{{item.price}}</text>
+          </view>
+          <view class="goods-type c_999 mb_20">
+            {{item.key_name}}
+          </view>
+          <view class="num-box">
+            <view class="btn-groups">
+              <view class="goods-btn btn-minus" data-index="{{index}}" data-id='{{item.id}}' data-num="{{item.num}}" bindtap="subtraction">—</view>
+              <view class="num">{{item.num}}</view>
+              <view class="goods-btn btn-add f_32" data-stock="{{item.stock}}" data-index="{{index}}" data-id='{{item.id}}' data-num="{{item.num}}" bindtap="addtion">+</view>
+            </view>
+          </view>
+        </view>
+        <image src='../../images/delete.png' data-index="{{index}}" class='delete' bindtap='delete' data-id='{{item.id}}' data-type="0"></image>
+      </view>
+      <view class="item bor_b p_20 flex_i" wx:for="{{downList}}" wx:key="downList">
+        <icon type="{{item.select}}" color="#E90606" size="20" data-pid="{{item.pid}}" data-num='{{item.num}}' data-priceid='{{item.priceId}}' data-id="{{item.id}}" data-index="{{index}}" data-select="{{item.select}}" bindtap="{{!showDelBtn?'change':''}}" data-showdelbtn='1'/>
+        <image src="{{item.pic}}" class="goods-img ml_20" mode="widthFix" data-id='{{item.pid}}' bindtap='details'></image>
+        <view class="goods-info ml_20">
+          <view class="row mb_20 f_32 flex_cb">
+            <view class="goods-name sheng">{{item.name}}</view>
+            <text class="goods-price">￥{{item.price}}</text>
+          </view>
+          <view class="goods-type c_999 mb_20">
+            {{item.key_name}}
+          </view>
+          <view class="num-box f_32 c_ea5">
+              商品已下架
+          </view>
+        </view>
+        <image src='../../images/delete.png' data-index="{{index}}" class='delete' bindtap='delete' data-id='{{item.id}}' data-type="1"></image>
+      </view>
+    </view>
+    <view class="cart-fixbar">
+      <view class="allSelect">
+        <icon type="{{allSelect}}" color="#E90606" size="22" data-select="{{allSelect}}" bindtap="allSelect"/>
+        <view class="allSelect-text">全选</view>
+      </view>
+      <view class='delsBtn f_28' bindtap='delsBtn' hidden='{{showDelBtn}}'>删除</view>
+      <view class="count f_32 flex" hidden='{{!showDelBtn}}'>
+        <text>合计：￥</text>{{count}}
+      </view>
+      <view class="order b_029 pr" hidden='{{!showDelBtn}}'>
+        <form report-submit='true' class='formBtn' bindsubmit='comfirm'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        去结算<text class="allnum ml_10">({{num}})</text>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="list-empty flex_af">
+      <view class='c_999 mb_20 f_32'>购物车空空如也！</view>
+      <navigator class='p_15 bor_box f_28' open-type="switchTab" url='../index/index'>去逛逛</navigator>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class="list-empty flex_af">
+    <view class='c_999 mb_20 f_32'>您还未登录</view>
+    <navigator class='p_15 bor_box f_28' open-type="switchTab" url='../my/my'>去登陆</navigator>
+  </view>
+</view>

@@ -1,0 +1,68 @@
+/* pages/secKill/secKill.wxss */
+.page{
+  background: #EE663A;
+  min-height: 100vh;
+  width: 100%;
+}
+.secKill_header{
+  width: 100%;
+  height: 500rpx;
+  position: relative;
+  color: #D3305F;
+}
+.secKill_header image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.secKill_dao{
+  position: relative;
+  z-index: 10;
+  margin: 400rpx 0 0 20rpx;
+}
+.secKill_header text{
+  padding: 10rpx;
+  background: #D3305F;
+  color: #FFDE6E;
+  border-radius: 10rpx;
+  margin: 0 10rpx;
+}
+.secKill_title{
+  background: #EC9C0E;
+  font-size: 36rpx;
+  padding: 10rpx 0;
+}
+.down{
+  margin-top: -5rpx;
+  width: 80rpx;
+  height: 40rpx;
+}
+.secKillList{
+  width: 90%;
+  margin: 20rpx auto 0;
+  border-radius: 10rpx;
+}
+.list_img{
+  width: 200rpx;
+  height: 200rpx;
+}
+.list_right{
+  width: 430rpx;
+}
+.list_title{
+  font-weight: 700;
+  font-size: 36rpx;
+}
+.new_money{
+  font-size: 60rpx;
+  color: #52006B;
+}
+.list_fotter{
+  background: #52006B;
+  border-radius: 10rpx;
+  padding: 15rpx 0;
+  width: 180rpx;
+  text-align: center;
+}

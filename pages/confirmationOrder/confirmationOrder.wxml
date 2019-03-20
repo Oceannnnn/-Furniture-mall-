@@ -1,0 +1,76 @@
+<!--pages/confirmationOrder/confirmationOrder.wxml-->
+<view class='confirmationOrder'>
+  <view class='p_20 flex_cb mt_20 pr'>
+    <form report-submit='true' class='formBtn' bindsubmit='orderAddress' data-addressid='{{addressId}}'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class='flex_i arrow_left'>
+      <i class="iconfont icon-unie65c"></i>
+      <view class='f_34' wx:if="{{addressId!=0}}">
+        {{name}}
+        <text class='f_28 mr_10'>{{phone}}</text>
+        <view class='f_28 mt_10'>{{location}}</view>
+      </view>
+      <view wx:else class='f_34'>
+        请选择你的地址
+      </view>
+    </view>
+    <image class="arrow ml_20" src="../../images/last_Dawn.png"></image>
+  </view>
+  <image src='../../images/address.png' class='address_line bor_bom'></image>
+  <view class='flex_i p_20 bor_bom' wx:for="{{goodsList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+    <image src='{{itemName.pic}}' class='goods_img mr_20'></image>
+    <view class='f_30 flex_fs goods_right'>
+      <view>
+        <view class='sheng'>{{itemName.name}}</view>
+        <view class='mt_10 f_28 c_999 sheng'>{{itemName.spec}}</view>
+      </view>
+      <view class='flex_cb'>
+        <view class='c_ea5 f_34'>￥{{itemName.price}}</view>
+        X{{itemName.num}}
+      </view>
+    </view>
+  </view>
+  <view class='flex_cb p_20 f_30 bor_bom'>
+    运费
+    <view>￥{{postage}}</view>
+  </view>
+  <view class='flex_cb p_20 f_30 bor_b'>
+    <text class="ke {{coupon_num == 0?'zwky':''}}">优惠卷抵扣</text>
+    <view class='flex_i'>
+      <text wx:if='{{coupon_num == 0}}' class='zwky'>暂无可用</text>
+      <text wx:else bindtap='useCoupon'>
+        <text wx:if='{{coupon == 0}}' class='ke'>{{coupon_num}}张优惠券</text>
+        <text wx:else class='ke'>
+          <text wx:if="{{isdiscount}}">{{coupon}}折</text>
+          <text wx:else>-￥{{coupon}}</text>
+        </text>
+      </text>
+      <i class="iconfont icon-xiangyoujiantou c_999"></i>
+    </view>
+  </view>
+  <view class='flex_cb p_20 f_30 bor_bom'>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox {{balance==0?'zwky':''}} flex_i">
+        <checkbox value="{{balance}}" checked="" disabled="{{balance==0?'disabled':''}}" style="transform:scale(.6)"/>余额支付
+      </label>
+    </checkbox-group>
+    <text wx:if='{{balance== 0}}' class='zwky'>￥0.00</text>
+    <text wx:else>￥{{balance}}</text>
+  </view>
+  <view class='flex_cb p_40 f_30 bor_bom'>
+    <view class='flex_i'>
+      <image src='../../images/pay.png' class='pay_img mr_20'></image>
+      微信支付
+    </view>
+    <i class="iconfont icon-dagou"></i>
+  </view>
+</view>
+<view class='footer bg_f flex_i'>
+  <view class='comfirm_lift flex f_30'>
+    实付款： <text class='c_ea5 f_34'>￥{{allPrice}}</text>
+  </view>
+  <form report-submit='true' bindsubmit='comfirm'>
+    <button formType="submit" class='b_029 c_f f_32' disabled="{{disabled}}">立即支付</button>
+  </form>
+</view>

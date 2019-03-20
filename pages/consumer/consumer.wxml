@@ -1,0 +1,98 @@
+<!--pages/consumer/consumer.wxml-->
+<view class='{{currentId==3?"page":""}}'>
+  <view class="nav-scroll f_32 bg_f">
+    <view class="scroll-view_H">
+      <view wx:for="{{HeaderList}}" wx:key="item" data-type='{{item.type}}' data-id="{{item.id}}" bindtap='toList' class='nav-name'>
+        <text class="{{item.id == currentId ? 'nav-hover' : ''}} p_20">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='p_20' hidden='{{currentId!=3?false:true}}'>
+    <view class='scroll_body'>
+      <view wx:for="{{currentId==1?money_off:discount}}" wx:key="item" class='coupon_items mb_20 flex_cb bg_f {{currentId==1?"on":""}}'>
+        <view class='coupon_left ml_10'>
+          <view class='coupon_title flex pr' wx:if="{{currentId==1}}">
+            <view class='icon_coupon'>￥</view><view class='coupon_money'>{{item.money}}</view>
+            <view class='ml_20'>
+              <view class='conpon_biao'>满减券</view>
+              <view class='pr f_32 ml_20 c_999'>[满{{item.condition}}可用]</view>
+            </view>
+          </view>
+          <view class='coupon_title flex pr ml_20' wx:else>
+            <view class='coupon_money'>{{item.discount}}</view> <view class='icon_coupon'>折</view>
+            <view class='ml_20'>
+              <view class='conpon_biao'>折扣券</view>
+              <view class='pr f_32 ml_20 c_999'>[满{{item.condition}}可用]</view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{item.status==0}}" class='button_coupon pr mr_20' data-index='{{index}}' data-coupon_id="{{item.coupon_id}}" bindtap='toVoucher'>
+          立即领取
+        </view> 
+        <navigator wx:else class='button_coupon pr mr_20' open-type='switchTab' url="../index/index">
+          立即使用
+        </navigator> 
+        <image src='../../images/yi_ling.png' class='ling' wx:if="{{item.status!=0}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class='scroll_body pr redrnvelopes' hidden='{{currentId!=3?true:false}}'> 
+    <view wx:if="{{isHaveBonus}}"> 
+      <view class='isUnredBag pr flex_af' wx:if="{{canDismantling==5}}">
+        <image src='../../images/redrnvelopes_y.png' class='redrnvelopes_y'></image>
+        <view class='redrnvelopes_body flex_af f_32'>
+          活动已结束
+        </view>
+        <button class='s_foot goHome' bindtap='goHome'>返回首页</button>
+      </view>
+      <view class='isUnredBag pr flex_af' wx:if="{{canDismantling==6}}">
+        <image src='../../images/redrnvelopes_y.png' class='redrnvelopes_y'></image>
+        <view class='redrnvelopes_body flex_af f_32'>
+          红包已过期
+        </view>
+        <button class='s_foot goHome' bindtap='goHome'>返回首页</button>
+      </view>
+      <view class='isUnredBag redBag pr flex_af' wx:if="{{canDismantling==4}}">
+        <image src='../../images/hong_has.jpg' class='redrnvelopes_y img'></image>
+        <navigator class='home c_f f_30' open-type="switchTab" url='../index/index'>返回首页</navigator>
+        <view class='redBagMoney flex'>
+          {{resultMoney}}34
+          <text>元</text>
+        </view>
+        <button class='s_foot isUnredBag_btn' open-type='share'>分享</button>
+      </view>
+      <view class='isUnredBag pr flex_af' wx:else>
+        <image src='../../images/redrnvelopes_y.png' class='redrnvelopes_y'></image>
+        <view class='redrnvelopes_body flex_af' wx:if="{{isGetBonus==1}}">
+          <view class='flex_i mt_20 flex_f redrnvelopesList'>
+            <view wx:for="{{redrnvelopesList}}" wx:key="redrnvelopesList" class='redrnvelopes_item {{item!=""?"on":""}}'>
+              <image src='{{item}}' hidden='{{item==""?true:false}}'></image>
+            </view>
+          </view>
+          <view class='f_28 mt_20' wx:if="{{canDismantling!=1}}">还差{{bonusCount}}人即可瓜分{{bonusMoney}}元红包，快邀请好友来拆</view>
+          <view class='mt_20 f_28'>{{end_time}}后结束</view>
+          <view wx:if="{{canDismantling==1}}">
+            <button class='redBotton' bindtap='pullBonus'>立即拆红包</button>
+          </view>
+          <view wx:else>
+            <button class='redBotton' open-type='share' wx:if="{{isFriend}}">邀请微信好友一起拆</button>
+            <view wx:else>
+              <button class='redBotton' bindtap='pullTogether'>一起拆红包</button>
+              <button class='redBotton mt_20' bindtap='pullTogether' data-new='1'>拆一个新红包</button>
+            </view>
+          </view>
+        </view>
+        <view wx:else class='pr flex_af'>
+          <view class='chai flex_faj' bindtap='receiveBonus' data-redrnvelopes="{{redrnvelopes}}">拆</view>
+        </view>
+        <button class='s_foot goHome' bindtap='goHome'>返回首页</button>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="list-empty flex_af">
+        <view class='c_999 mb_20 f_32'>暂无优惠券活动</view>
+        <navigator class='p_15 bor_box f_28' open-type="switchTab" url='../index/index'>返回首页</navigator>
+      </view>
+    </view>
+  </view>
+</view>

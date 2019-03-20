@@ -1,0 +1,19 @@
+<!--pages/distributionIllustrate/distributionIllustrate.wxml-->
+<view class='p_20 bor_bom'>
+  <view class='f_34'>佣金提现操作说明：</view>
+  <view class='f_32 mt_10'>打开个人中心——分销中心——提现</view>
+  <view class='f_32 mt_10 c_029'>注：佣金与返利是由商家按照订单金额比例设置的。</view>
+</view>
+<view class='p_20 bor_bom'>
+  <view class='f_34'>首先商城佣金可以提现至余额、微信、支付宝三个地方。</view>
+  <view class='f_32 mt_20'>余额： <text class='f_28'>就是商城个人中心里面的金额</text> </view>
+  <view class='f_32 mt_20'>微信： <text class='f_28'>进行佣金提现时，必须填写正确的微信号和真实姓名，并保证信息无误。填写的姓名与微信实名认证的姓名必须一致！！否则无法正常提现！</text> </view>
+  <view class='f_32 mt_20'>支付宝： <text class='f_28'>进行佣金提现时，必须填写正确的支付宝账号和真实姓名，保证支付宝账号无误，填写的姓名与支付宝账号的实名认证的姓名必须一致！！否则无法正常提现！</text> </view>
+</view>
+<view class='p_20'>
+  <view class='f_34'>提现部分：</view>
+  <view class='f_32 mt_20'>分销佣金</view>
+  <view class='f_28 mt_10'>就是下级购物买东西，上级得到的佣金，分销佣金里可以查看到，在可提现佣金里面，点击提现即可，佣金就会提交审核，商家审核通过，会将佣金返到你所提交的账户中。</view>
+  <view class='f_32 mt_20 c_ea5'>特别说明：当月的佣金订单结算是指用户确认收货的时间开始计算，即用户在商城点击确认收货了，佣金才会提交审核，没确认收货的订单，将会自动顺延累计到下个月。 </view>
+  <view class='f_32 mt_10'>注：最终解释权归本公司所有</view>
+</view>

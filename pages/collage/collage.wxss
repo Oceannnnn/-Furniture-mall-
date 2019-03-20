@@ -1,0 +1,30 @@
+/* pages/collage/collage.wxss */
+@import "../../font/iconfont.wxss";
+@import "../allorder/allorder.wxss";
+.nav-scroll{
+  box-shadow: 1px 1px 6px #eee;
+}
+.scroll-view_H{
+  color: #333;
+}
+.nav-name{
+  width: auto;
+  padding: 30rpx;
+}
+.collage_img{
+  width: 100%;
+  height: 400rpx;
+}
+.collage_footer{
+  border: 1px solid #ccc;
+}
+.footer_item{
+  padding: 10rpx 20rpx;
+}
+.iconfont{
+ font-size: 30rpx;
+}
+.footer_item:last-child{
+  background: #666666;
+  color: #fff;
+}

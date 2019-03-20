@@ -1,0 +1,22 @@
+<!--pages/recharge/recharge.wxml-->
+<view class='s_recharge'>
+  <view class='f_32 p_40'>充值金额</view>
+  <view class='s_parameterWrap'>
+    <block wx:for="{{parameter}}" wx:key="parameter">
+      <view class='s_parameterInfo text-over {{item.status?"s_checked_parameter":""}} p_20' data-id='{{item.id}}' bindtap='parameterTap'>
+       <text>￥{{item.type}}</text> 
+       <view class='f_28 {{item.status?"c_f":"c_ea5"}}' hidden='{{is_presenter==1?false:true}}'>充{{item.type}}送{{item.presenter}}</view>
+      </view>
+    </block>
+  </view>
+  <view class='p_20 otherRecharge'><input class='f_32 p_20' placeholder='其他金额' bindfocus='bindinput' bindinput='bindinput' value='{{money}}'></input></view>
+  <view class='s_goRecharge c_999 f_32'>
+      <!-- <view>
+        <text>点击去充值，即表示已阅读并同意</text> <text class='c_029' bindtap='s_protocol'>《充值协议》</text>
+      </view> -->
+    <text class='mb_20'>本商城不会以任何形式要求您输入银行账户或密码</text>
+    <button class='s_foot' bindtap='goRecharge' disabled='{{disabled}}'>
+      <text>去充值</text>
+    </button>
+  </view>
+</view>

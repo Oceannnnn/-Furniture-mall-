@@ -1,0 +1,134 @@
+<!--pages/my/my.wxml-->
+<view class="my-wrap f_32">
+  <view class="p_20 bor_b">
+    <view wx:if="{{!hasUserInfo}}" class='flex_af mb_20'>
+        <view class='f_32 flex_af'>
+          <view class='pr avatar_info'>
+            <image class="avatar" src="../../images/wu.png"></image>
+            <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='getUserInfo'> </button>
+          </view>
+          <view>未登录<text class='f_28'>(请点击登录)</text></view>
+        </view>
+    </view>
+    <view wx:else class="flex_af">
+      <image class="avatar mb_20" src="{{userInfo.avatarUrl}}"></image>
+      <view>{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view class='flex_i bor_b f_32'>
+    <navigator class="integral_item" url='../balance/balance'>
+      余额：{{balance}}
+    </navigator>
+    <view class="integral_item bor_l">
+      积分：{{integral}}
+    </view>
+  </view>
+  <view class="nav-warp f_32">
+    <view class="nav-item p_40 bor_b flex_cb pr">
+        <form report-submit='true' class='formBtn' bindsubmit='allorder' data-id="0" data-type="1" data-allorder="all">
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view>我的订单</view>
+        <view class='flex_i f_28 c_999'>
+          查看更多订单
+          <image class="arrow ml_20" src="../../images/last_Dawn.png"></image>
+        </view>
+    </view>
+    <view class='flex_i p_20 f_28'>
+      <view wx:for="{{order}}" wx:for-item="itemName" wx:key="itemName" class='flex_af orderItem pr'>
+        <form report-submit='true' class='formBtn' bindsubmit='allorder' data-id="{{itemName.id}}" data-type="1" data-allorder="{{itemName.allorder}}">
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+          <i class="iconfont icon-{{itemName.icon}} mb_10"></i>
+          {{itemName.name}}
+      </view>
+    </view>
+    <view class='flex my_footer bor_top f_28'>
+      <view class="nav-item pr flex_af">
+        <form report-submit='true' class='formBtn' bindsubmit='allorder' data-type="2" data-id="0" data-allorder="all">
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class='flex_af'>
+          <i class="iconfont icon-gengduopintuan mb_20 c_f9d"></i>
+          <view>我的拼团</view>
+        </view>
+      </view>
+      <view class="nav-item pr flex_af">
+        <form report-submit='true' class='formBtn' bindsubmit='collection'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class='flex_af'>
+          <i class="iconfont icon-icon- mb_20 c_fdb"></i>
+          <view>我的收藏</view>
+        </view>
+      </view>
+      <view class="nav-item pr flex_af">
+        <form report-submit='true' class='formBtn' bindsubmit='coupons'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class='flex_af'>
+          <i class="iconfont icon-weibiaoti2fuzhi02 mb_20 c_f68"></i>
+          <view>我的优惠券</view>
+        </view>
+      </view>
+      <view class="nav-item pr flex_af">
+        <form report-submit='true' class='formBtn' bindsubmit='redPacket'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class='flex_af'>
+          <image class="small mb_10" src="../../images/red.png"></image>
+          <view>我的红包</view>
+        </view>
+      </view>
+      <view class="nav-item pr flex_af">
+        <form report-submit='true' class='formBtn' bindsubmit='cart'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class='flex_af'>
+          <i class="iconfont icon-gouwuche mb_20 c_ea5"></i>
+          <view>购物车</view>
+        </view>
+      </view>
+      <view class="nav-item pr flex_af">
+        <form report-submit='true' class='formBtn' bindsubmit='myadd'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class='flex_af'>
+          <i class="iconfont icon-unie65c mb_20 c_5e8"></i>
+          <view>收货地址</view>
+        </view>
+      </view>
+      <view class="nav-item pr flex_af">
+        <form report-submit='true' class='formBtn' bindsubmit='call'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class='flex_af'>
+          <i class="iconfont icon-shouhou mb_20 c_fdb"></i>
+          <view>退款/售后</view>
+        </view>
+      </view>
+      <view class="nav-item pr flex_af">
+        <form report-submit='true' class='formBtn' bindsubmit='distribution'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class='flex_af'>
+          <i class="iconfont icon-fenxiao mb_20 c_ff3"></i>
+          <view>分销中心</view>
+        </view>
+      </view>
+      <navigator class="nav-item pr flex_af" url="../about/about">
+        <view class='flex_af'>
+          <i class="iconfont icon-emiguanyuwomen mb_20 c_71b"></i>
+          <view>联系我们</view>
+        </view>
+      </navigator>
+      <navigator class="nav-item pr flex_af" url="../smallRoutine/smallRoutine">
+        <view class='flex_af'>
+          <image class="small mb_10" src="../../images/small.png"></image>
+          <view>开发中心</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+

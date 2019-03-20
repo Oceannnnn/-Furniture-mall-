@@ -1,0 +1,20 @@
+<!--pages/smallRoutine/smallRoutine.wxml-->
+<image src='{{bg}}' class='zhe'></image>
+<view class='smallRoutine pr flex_af'>
+  <view class='f_34 header'>想咨询小程序留下电话号码</view>
+  <view class='f_34 mb_20'>客服马上联系您！</view>
+  <view class='f_32 flex_i body'>
+    <view class='left'>姓名</view>   
+    <view class='input'>
+      <input type='text' placeholder='请填写您的真实姓名' value='{{name}}' bindinput='bindName'></input>
+    </view>
+  </view>
+  <view class='f_32 flex_i mt_20 body'>
+    <view class='left'>电话</view>   
+    <view class='input'>
+      <input type='number' placeholder='请填写您的电话号码' value='{{phone}}' bindinput='bindPhone'></input>
+    </view>
+  </view>
+  <button class='s_foot disHeader f_32' bindtap='bindtap'>提交</button>
+</view>
+<image src='../../images/samllIcon.png' class='call' animation="{{animation}}" bindtap='call'></image>

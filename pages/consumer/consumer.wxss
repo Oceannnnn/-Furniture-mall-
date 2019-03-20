@@ -1,0 +1,234 @@
+/* pages/consumer/consumer.wxss */
+
+page {
+  background: #f6f4f5;
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.nav-scroll {
+  width: 100%;
+  color: #bdbabb;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.scroll-view_H {
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-name {
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  width: 33.33%;
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.nav-hover {
+  color: #f86344;
+  border-bottom: 2px solid #f86344;
+}
+
+.scroll_body {
+  margin-top: 100rpx;
+}
+
+.coupon_items {
+  width: 100%;
+  position: relative;
+  height: 200rpx;
+  border-left: 3px #ef7d6b solid;
+  border-radius: 10rpx;
+}
+
+.coupon_items.on {
+  border-left: 3px #ff8194 solid;
+}
+
+.coupon_items.on .coupon_title {
+  color: #ff8194;
+}
+
+.coupon_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.pr {
+  position: relative;
+  z-index: 2;
+}
+
+.coupon_title {
+  font-size: 50rpx;
+  align-items: flex-end;
+  color: #f16d5b;
+}
+
+.icon_coupon {
+  margin: 20rpx 0 20rpx 20rpx;
+}
+
+.coupon_money {
+  font-size: 100rpx;
+  font-weight: 500;
+}
+
+.conpon_biao {
+  padding: 10rpx 20rpx;
+  font-size: 30rpx;
+  color: #f16d5b;
+  background: #fff;
+  margin: 20rpx;
+}
+
+.coupon_items.on .conpon_biao {
+  color: #ff8194;
+}
+
+.button_coupon {
+  padding: 20rpx 50rpx;
+  background: #f16d5b;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.coupon_items.on .button_coupon {
+  background: #ff8194;
+}
+
+.ling {
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
+  bottom: -15rpx;
+  right: -20rpx;
+  z-index: 1;
+}
+
+.redrnvelopes, .isUnredBag {
+  width: 100%;
+  height: 100vh;
+}
+
+.redrnvelopes_y {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.redrnvelopes_y.img {
+  height: 93%;
+  top: 4%;
+}
+
+.redrnvelopes_body {
+  width: 90%;
+  z-index: 10;
+  margin-top: 40%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10rpx;
+  color: #555;
+  padding: 20rpx 0;
+}
+
+.redrnvelopes_item {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  border: 1px dashed #f86344;
+  overflow: hidden;
+  margin: 20rpx;
+  background: #fff;
+}
+
+.redrnvelopes_item.on {
+  border: 1px solid #f86344;
+}
+
+.redrnvelopes_item image {
+  width: 100%;
+  height: 100%;
+}
+
+.redBotton {
+  font-size: 30rpx;
+  background: #f16d5b;
+  margin: 40rpx;
+  color: #fff;
+}
+
+.goHome {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f16d5b;
+  margin-top: 100rpx;
+  font-size: 34rpx;
+}
+
+.redBagMoney {
+  position: absolute;
+  bottom: 37%;
+  font-size: 100rpx;
+  align-items: flex-end;
+  left: 40%;
+  color: #000;
+}
+
+.redBagMoney text {
+  font-size: 40rpx;
+  margin: 0 10rpx 30rpx;
+}
+
+.redBag {
+  margin-top: -40rpx;
+}
+
+.isUnredBag_btn {
+  position: absolute;
+  left: 5%;
+  bottom: 8%;
+  opacity: 0;
+}
+
+.home {
+  padding: 20rpx 30rpx;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  right: 0;
+  top: 10%;
+  border-radius: 10rpx;
+}
+
+.chai {
+  background: #fc5e2a;
+  color: #fff;
+  font-size: 50rpx;
+  border: 1px solid #f86344;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-top: 411rpx;
+  box-shadow: 1px 1px 2px #000;
+}
+
+.redrnvelopesList {
+  height: 260rpx;
+  overflow: scroll;
+}

@@ -1,0 +1,71 @@
+/* pages/myadd/myadd.wxss */
+@import "../../font/iconfont.wxss";
+page{
+  background: #F2f2f2;
+}
+.memberinfo-warp {
+  position: relative;
+}
+
+.input-wrap {
+  margin-top: 20rpx;
+}
+
+.input-wrap .input {
+  margin-bottom: 20rpx;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1px solid #dbdbdb;
+  font-size: 32rpx;
+}
+.input-wrap .input input{
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  width: 90%;
+}
+.bianji{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 20rpx 0;
+  box-shadow: 1px 1px 6px #999;
+}
+.sub-btn {
+  width: 96%;
+  background: #E90606;
+  color:#fff;
+  font-size: 36rpx;
+}
+.submit_btn{
+  margin-top: 50rpx;
+}
+.phone{
+  font-size: 32rpx;
+  color: #999;
+}
+.name{
+  font-size: 38rpx;
+}
+.add_img{
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 100rpx;
+}
+.location_img{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
+}
+.wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:41px !important;height: 20px !important;}
+.wx-switch-input::after{width: 18px !important;height: 18px !important;}
+.moren{
+  color: #E90606;
+}
+.btn{
+  margin: 0 20rpx;
+}
+.cancel{
+  background: #ED1C24;
+}

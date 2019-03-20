@@ -1,0 +1,90 @@
+<!--pages/distribution/distribution.wxml-->
+<view wx:if="{{distributor==1}}">
+  <view class='p_20'>
+    <view class="flex_i p_20 bor_b f_34">
+      <image class="avatar mr_20" src="{{userInfo.avatarUrl}}"></image>
+      <view>{{userInfo.nickName}}</view>
+      <view class='ml_20'>(押金：{{cash}}元）</view>
+    </view>
+    <view class='flex_cb p_20'>
+      <view class='f_30'>
+        可提现佣金
+        <view class='f_32 mt_20'>{{can_money}}元</view>
+      </view>
+      <view class='postal f_32' data-type="1" bindtap="goCommission">提现</view>
+    </view>
+  </view>
+  <view class='disbosy flex_i f_32 bor_bom bor_t'>
+    <view class='flex_af integral_item'>
+      已提现的佣金
+      <view class='c_029 mt_10'>{{yet_money}}元</view>
+    </view>
+    <view class='flex_af integral_item bor_l'>
+      未结算佣金
+      <view class='c_ff3 mt_10'>{{un_money}}元</view>
+    </view>
+  </view>
+  <view class='disfooter flex_i f_32 bor_b'>
+    <view class='flex_faj disfooter_item bor_b bor_r' bindtap='toMoney'>
+      <i class="iconfont icon-icon-test c_fdb"></i>
+      分销佣金
+      <view class='c_ea5 mt_10'>{{money}}元</view>
+    </view>
+    <view class='flex_faj disfooter_item bor_b bor_r pr'>
+      <form report-submit='true' class='formBtn' data-id="0" data-type="3" data-allorder="all" bindsubmit='allorder'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <i class="iconfont icon-dingdan c_71b"></i>
+      分销订单
+    </view>
+    <view class='flex_faj disfooter_item bor_b pr'>
+      <form report-submit='true' class='formBtn' data-type="1" bindsubmit='toExpressive'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <i class="iconfont icon-tixian c_ea5"></i>
+      提现明细
+    </view>
+    <navigator class='flex_faj disfooter_item bor_r pr' url='../distributionTeam/distributionTeam'>
+      <form report-submit='true' class='formBtn' bindsubmit='bindsubmit'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <i class="iconfont icon-team c_5e8"></i>
+      我的团队
+      <view class='c_ea5 mt_10'>{{num}}人</view>
+    </navigator>
+    <navigator class='flex_faj disfooter_item bor_r pr' url='../distributionQRCode/distributionQRCode'>
+      <form report-submit='true' class='formBtn' bindsubmit='bindsubmit'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <i class="iconfont icon-erweima c_029"></i>
+      推广二维码
+    </navigator>
+    <navigator class='flex_faj disfooter_item bor_r pr' url='../distributionIllustrate/distributionIllustrate'>
+      <form report-submit='true' class='formBtn' bindsubmit='bindsubmit'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <i class="iconfont icon-wenhao c_ea5"></i>
+      佣金提现说明
+    </navigator>
+  </view>
+</view>
+<view wx:elif="{{distributor==3}}">
+  <view class='p_40'>
+    <view class='f_34'>分销规则：</view>
+    <view class='f_32 mt_10 lineHeight'>满足下列条件的所有用户均可成为商城分销商：</view>
+    <view class='f_30 mt_10 lineHeight'>1、凡在本商城购买商品累计消费满5000元或认缴押金200元即可成为商城代理，可享受三级代理权益。一级代理佣金比例8~10%，二级代理佣金比例5~8%，三级代理拥挤比例3~5%，根据商品不同促销活动时期，各级享受的佣金比例略有不同。如A申请成为代理商，最多可获得B、C、D三个等级的佣金。</view>
+    <view class='f_30 mt_10 lineHeight'>2、认缴押金成为代理商的再满足推广团队人数满10人（不限级别）或分销订单金额累计满5万元即可向客服申请押金退还，但仍享受共三层代理权益。
+</view>
+    <view class='f_30 mt_10 lineHeight'>注：泉州法勃龙实业有限责任公司享有最终解释权</view>
+  </view>
+  <view class='flex_i f_32 distributor '>
+    <button class='item on' bindtap='bindtapOn' data-type='2' disabled="{{disabled}}">
+      押金申请
+    </button>
+    <button class='item' bindtap='{{down_money >= up_money?"bindtapOn":"bindtapUP"}}' data-type='1'>立即申请</button>
+  </view>
+</view>
+<view wx:elif="{{distributor==2}}" class='flex_af onHandle'>
+  <text class='f_32'>客服处理中，请稍候！</text>
+  <text class='f_28 mt_20 c_999'>注：如有疑问，请联系客服人员。</text>
+</view>

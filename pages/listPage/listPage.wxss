@@ -1,0 +1,60 @@
+/* pages/listPage/listPage.wxss */
+@import "../../font/iconfont.wxss";
+@import '../index/index.wxss';
+.clear{
+  clear: both;
+  overflow: hidden;
+}
+.flex1.on{
+  border-left: 1px solid #eee;
+}
+.tabTit{
+  border-bottom: solid 1px #eee;
+  position:fixed;
+  top:0;
+  width: 100%;
+  background: #fff;
+  z-index: 1;
+  font-size:30rpx;
+  padding: 30rpx 0;
+  text-align: center;
+}
+.price_body{
+  position: absolute;
+  width: 100%;
+  top: 42px;
+  left: 0;
+  box-shadow: 1px 1px 6px #ccc;
+  flex-wrap: wrap;
+}
+.flex1 {
+  width: 25%;
+}
+navigator{
+  display:inline;
+}
+.items-body{
+  margin-top:40px;
+}
+.flex1.active{
+  color: #E90606;
+}
+.triangle{
+  width:0;
+  height:0;
+  border-style:solid;
+}
+.triangle_border_up{
+  border-width:0 10rpx 10rpx;
+  border-color:transparent transparent #333;
+}
+.triangle_border_down{
+  border-width:10rpx 10rpx 0;
+  border-color:#333 transparent transparent;
+}
+.triangle_border_up.on{
+  border-color:transparent transparent #E90606;
+}
+.triangle_border_down.on{
+  border-color:#E90606 transparent transparent;
+}

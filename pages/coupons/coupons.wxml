@@ -1,0 +1,24 @@
+<!--pages/coupons/coupons.wxml-->
+<view class="nav-scroll f_32 bg_f">
+  <view class="scroll-view_H">
+    <view wx:for="{{HeaderList}}" wx:key="item" data-type='{{item.type}}' data-id="{{item.id}}" bindtap='toList' class='nav-name'>
+      <text class="{{item.id == currentId ? 'nav-hover' : ''}} p_20">{{item.name}}</text>
+    </view>
+  </view>
+</view>
+ <view wx:if="{{couponList!=''}}" class='couponBody'>
+  <view class='quan_item flex_cb' wx:for="{{couponList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+    <image src='../../images/quan_{{currentId==1?"use":"un"}}.png'></image>
+      <view wx:if="{{itemName.money!=0}}"><text class="quan-yen">￥</text><text class="quan-price">{{itemName.money}}</text></view>
+      <view wx:else><text class="quan-price">{{itemName.discount}}</text><text class="quan-yen">折</text></view>
+      <view class='quan_right'>
+        <view class="f_32 mb_10 c_ea5">{{itemName.title}}</view>
+        <view class="quan-limit">满{{itemName.condition}}元可用</view>
+        <view class="quan-time">有效期至{{itemName.end_time}}</view>
+    </view>
+  </view>
+</view>
+<view wx:else class='flex_af'>
+  <image src='../../images/coupon1.png' class='zanwu mb_20'></image>
+  <text class='f_32 c_999'>暂无优惠券</text>
+</view>

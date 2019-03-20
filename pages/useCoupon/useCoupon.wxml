@@ -1,0 +1,32 @@
+<!--pages/useCoupon/useCoupon.wxml-->
+<view class='p_40 coupon_con'>
+  <view wx:if="{{couponList != ''}}">
+    <view class='coupon_item' wx:for='{{couponList}}' wx:key="{{itemName}}" wx:for-item="itemName" bindtap='chooseCoupon' data-coupon="{{itemName.money!=0?itemName.money:itemName.discount}}" data-id="{{itemName.id}}" data-isdiscount='{{itemName.money!=0?false:true}}'>
+      <view class='flex_cb coupon_body'>
+        <view class='flex_j body_l'>
+          <view class='left_header mb_20'>
+          {{itemName.name}}
+          </view>
+          <view class='left_footer f_28 mb_20'>
+            有效期至{{itemName.end_time}}
+          </view>
+        </view>
+        <view class='flex body_r'>
+          <view class='right_header mb_20' wx:if="{{itemName.money!=0}}">
+            <text>￥</text><text class='r_money'>{{itemName.money}}</text>
+          </view>
+          <view class='right_header mb_20' wx:else>
+            <text class='r_money'>{{itemName.discount}}</text><text>折</text>
+          </view>
+          <view class='right_footer f_28 mb_20'>
+            满{{itemName.condition}}可用
+          </view>
+        </view>
+      </view>
+      <view class='coupon_footer'>
+        任何商品都可以使用。
+      </view>
+    </view>
+  </view>
+</view>
+<view class='useCoupon_foot' bindtap='UnChooseCoupon'>不使用优惠券</view>

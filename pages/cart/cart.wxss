@@ -1,0 +1,127 @@
+.cart-box .item{
+  flex-direction: row;
+}
+.cart-box .goods-img{
+  width: 160rpx;
+}
+.cart-box .row{
+  width: 430rpx;
+}
+.goods-name{
+  width: 300rpx;
+}
+/* .cart-box .goods-name{
+  width: calc(100% - 100rpx);
+} */
+.cart-box .goods-type{
+  font-size: 24rpx;
+}
+.cart-box .num-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.cart-box .goods-btn{
+  width: 60rpx;
+  height: 60rpx;
+  padding: 0;
+  line-height: 60rpx;
+  font-weight: bold;
+  color: #999;
+  margin: 0;
+}
+.cart-box .num{
+  color: #999;
+  min-width: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  padding: 0 10rpx;
+}
+.cart-box .btn-minus{
+  font-size: 22rpx;
+  border-right: 1px solid #ccc;
+}
+.cart-box .btn-add{
+  border-left: 1px solid #ccc;
+}
+.cart-box .btn-groups{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    border: 1px solid #ccc;
+    border-radius: 10rpx;
+    text-align: center;
+}
+.cart-fixbar{
+  box-shadow: 1px 1px 6px #ccc;
+  background: #fff;
+  color: #333;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cart-fixbar .allSelect{
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  align-items: center;
+  font-size: 32rpx;
+  width: 20%;
+  padding-left: 20rpx;
+}
+.cart-fixbar .allSelect-text{
+  margin-left: 20rpx;
+}
+.cart-fixbar .count{
+  width: 43%;
+  justify-content:flex-end;
+  padding: 0 20rpx;
+}
+.cart-fixbar .order{
+  width: 30%;
+  color:#fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+.cart-fixbar .allnum{
+  font-size: 24rpx;
+}
+.delete{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 30rpx;
+}
+.delsBtn{
+  border: 1px solid #EA5D34;
+  color: #EA5D34;
+  width: 10%;
+  text-align: center;
+  padding: 5rpx 0;
+  margin-left: 10rpx;
+}
+.gaunli{
+  padding: 5rpx 15rpx;
+  border: 1px solid #EA5D34;
+  border-radius: 10rpx;
+}
+.cart-box{
+  margin-top: 100rpx;
+}
+.guanHeader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 20rpx 0;
+}
+.cartBody{
+  margin-bottom: 100rpx;
+}

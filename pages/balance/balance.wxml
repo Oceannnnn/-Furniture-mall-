@@ -1,0 +1,34 @@
+<!--pages/balance/balance.wxml-->
+<view class='s_balance'>
+  <navigator class='flex_i record' url='../record/record'>
+    <view>充值记录 ></view>
+  </navigator>
+  <view class='flex_i record expressive pr'>
+    <form report-submit='true' class='formBtn' data-type="0" bindsubmit='toExpressive'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view>提现记录 ></view>
+  </view>
+  <view class='flex_j'>
+    <image src='../../images/yue.png' class='yue_icon'></image>
+  </view>
+  <view class='flex_j s_text'>
+    <text>账户余额</text>
+  </view>
+  <view class='flex_j s_money'>
+    <text class='s_num'>{{balance}}</text>
+    <text>元</text>
+  </view>
+  <view class='flex_i button'>
+    <form report-submit='true' data-type="0" bindsubmit='goCommission'>
+      <button class='s_foot goExpressive' form-type='submit'>
+        <text>提现</text>
+      </button>
+    </form>
+      <form report-submit='true' bindsubmit='recharge'>
+        <button class='s_foot' form-type='submit'>
+          <text>充值</text>
+        </button>
+      </form>
+  </view>
+</view>

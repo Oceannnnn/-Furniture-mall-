@@ -1,0 +1,38 @@
+<!--pages/secKill/secKill.wxml-->
+<view wx:if="{{isSecKill==2}}" class='page'>
+  <view class='secKill_header flex_af'>
+    <image src='../../images/miao.png'></image>
+    <view class='f_32 secKill_dao'><text>{{h}}</text>时<text>{{m}}</text>分<text>{{s}}</text>秒</view>
+  </view>
+  <view class='secKill_title c_f flex_af'>
+    火热抢购中
+    <image src='../../images/xiangd.png' class='down' animation="{{animation}}"></image>
+  </view>
+  <view class='secKillList p_20 bg_f flex' wx:for="{{secKillList}}" wx:key="secKillList" data-id='{{item.id}}' data-type='2' bindtap='details'>
+    <image src='{{item.pic}}' class='list_img'></image>
+    <view class='list_right ml_20 flex_fs'>
+      <view>
+        <view class='sheng list_title c_ea5'>{{item.title}}</view>
+        <view class='f_32 flex_i'>
+          秒杀价： <text class='new_money'>{{item.seckill_price}}</text>
+        </view>
+      </view>
+      <view class='flex_cb'>
+        <view class='c_999 f_32 text_l'>原价：{{item.price}}</view>
+        <view class='list_fotter c_f f_30'>立即抢购</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:elif="{{isSecKill==1}}">
+  <view class="list-empty flex_af">
+    <view class='c_999 mb_20 f_32'>距离活动开始<text>{{h}}</text>时<text>{{m}}</text>分<text>{{s}}</text>秒</view>
+    <navigator class='p_20 b_029 c_f f_28' open-type="switchTab" url='../index/index'>返回首页</navigator>
+  </view>
+</view>
+<view wx:else>
+  <view class="list-empty flex_af">
+    <view class='c_999 mb_20 f_32'>暂无秒杀活动</view>
+    <navigator class='p_15 bor_box f_28' open-type="switchTab" url='../index/index'>返回首页</navigator>
+  </view>
+</view>

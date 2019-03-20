@@ -1,0 +1,54 @@
+/* pages/distribution/distribution.wxss */
+@import "../../font/iconfont.wxss";
+@import "../my/my.wxss";
+.disHeader{
+  background: #464346;
+}
+.postal{
+  border: 1px solid #333;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+.disbosy{
+  padding: 20rpx 0;
+}
+.integral_item{
+  padding: 0;
+}
+.disfooter .iconfont{
+  font-size: 80rpx;
+}
+.disfooter{
+  flex-wrap: wrap;
+}
+.disfooter_item{
+  width: 33.33%;
+  height: 200rpx;
+  box-sizing: border-box;
+}
+.item{
+  width: 46%;
+  padding: 15rpx 0;
+  margin: 20rpx 5% 0;
+  border: 1px solid #464346;
+  text-align: center;
+  color: #464346;
+}
+.distributor button{
+  font-size: 32rpx;
+  padding: 0;
+  background: none;
+}
+.zhu{
+  margin: 20rpx 5% 0;
+}
+.item.on{
+  color: #E93D3B;
+  border: 1px solid #E93D3B;
+}
+.onHandle{
+  margin-top: 300rpx;
+}
+.lineHeight{
+  line-height: 60rpx;
+}

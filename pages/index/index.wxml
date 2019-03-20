@@ -1,0 +1,96 @@
+<!--index.wxml-->
+<view class='main_header'>
+  <swiper indicator-dots interval="3000" duration="1000" autoplay='true' circular>
+    <block wx:for="{{imgUrls}}" wx:key="{{itemName}}" wx:for-item="itemName">
+      <swiper-item data-id="{{itemName.pro_id}}" data-type="0" bindtap='details'>
+        <text class='text' wx:if="{{itemName.title!=''}}">{{itemName.title}}</text>
+        <image src="{{itemName.pic}}" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='p_20'>
+  <view class='searchBox flex_i f_28'>
+    <image src='../../images/serch.png' class='arrow mr_20'></image>
+    <input placeholder='商品搜索：请输入商品关键字' bindconfirm='bindconfirm'></input>
+  </view>
+</view>
+<view class='flex_i quick_body bor_bom'>
+  <navigator class='quick_item flex_af f_28 pr' url='../consumer/consumer'>
+    <form report-submit='true' class='formBtn' bindsubmit='bindsubmit'>
+      <button class='formBtn' form-type='submit'></button>
+    </form> 
+    <view class='mb_10 icon_item'>
+      <image src='../../images/quan.jpg'></image>
+    </view>
+    <text>领券</text>
+  </navigator>
+  <navigator class='quick_item flex_af f_28 pr' url='../collage/collage'>
+    <form report-submit='true' class='formBtn' bindsubmit='bindsubmit'>
+      <button class='formBtn' form-type='submit'></button>
+    </form> 
+    <view class='mb_10 icon_item'>
+      <image src='../../images/tuan.jpg'></image>
+    </view>
+    <text>拼团</text>
+  </navigator>
+  <view class='quick_item flex_af f_28 pr'>
+    <form report-submit='true' class='formBtn' data-ptime='{{ptime}}' bindsubmit='toSecKill'>
+      <button class='formBtn' form-type='submit'></button>
+    </form> 
+    <view class='mb_10 icon_item'>
+      <image src='../../images/miao.jpg'></image>
+    </view>
+    <text>秒杀</text>
+  </view>
+  <view class='quick_item flex_af f_28 pr'>
+    <form report-submit='true' class='formBtn' data-type='1' bindsubmit='listPage'>
+      <button class='formBtn' form-type='submit'></button>
+    </form> 
+    <view class='mb_10 icon_item'>
+      <image src='../../images/zhe.jpg'></image>
+    </view>
+    <text>折扣</text>
+  </view>
+  <view class='quick_item flex_af f_28 pr' wx:for="{{cateList}}" wx:key="{{cateList}}">
+    <form report-submit='true' class='formBtn' data-type='0' data-id='{{item.id}}' bindsubmit='listPage'>
+      <button class='formBtn' form-type='submit'></button>
+    </form> 
+    <view class='mb_10 icon_item'>
+      <image src='{{item.pic}}'></image>
+    </view>
+    <text>{{item.cate_name}}</text>
+  </view>
+</view>
+<view class='flex_ja f_32 p_20 bor_b' wx:if="{{itemsList!=''}}">
+  <text class='t_text'>- 今日推荐 -</text>
+</view>
+<view class="items-body flex_f">
+  <view wx:for="{{itemsList}}" wx:key="{{itemName}}" wx:for-item="itemName" class='item_list p_20 bor_b pr'>
+    <form report-submit='true' class='formBtn' data-id='{{itemName.id}}' data-type='0' bindsubmit='details'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class="item-img mb_20">
+      <image class="lazy" src="{{itemName.pic}}" />
+    </view>
+    <view class='sheng2 f_32 mb_20 contentText'>{{itemName.name}}</view>
+    <view class='flex_i f_30'><view class="price">￥{{itemName.price}}</view><view class="text_l c_999 ml_20" wx:if="{{itemName.is_discount==1}}">￥{{itemName.discount_before}}</view></view>
+  </view>
+</view>
+<view class='tool_icon'>
+  <image src="../../images/tool1.png" class="img-style image" animation="{{animCollect}}" bindtap="call"></image>
+  <view class="img-style kefu flex_faj" animation="{{animTranspond}}">
+    <image src="../../images/tool2.png" class='img_li'></image>
+    <button open-type="contact" class="details_btn"></button>
+  </view>
+  <image src="../../images/tool.png" class="img-plus-style image" animation="{{animPlus}}" bindtap="plus"></image>
+</view>
+<navigator class='flex_af f_28 p_40' url="../../pages/smallRoutine/smallRoutine">技术支持 @ 风擎网络科技</navigator>
+<view class='redrnvelopes flex_af' wx:if='{{redrnvelopesClose==1}}'>
+  <view class='red_shu'></view>
+  <view class='red_img'>
+    <image src='../../images/redrnvelopes.png'></image>
+    <view class='goRedrnvelopes' bindtap='consumer'></view>
+  </view>
+  <i class="iconfont icon-cha red_iocn" bindtap="redrnvelopesClose"></i>
+</view>

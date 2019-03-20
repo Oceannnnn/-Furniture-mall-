@@ -1,0 +1,74 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/redPacket/redPacket",
+    "pages/distribution/distribution",
+    "pages/smallRoutine/smallRoutine",
+    "pages/logistics/logistics",
+    "pages/confirmationOrder/confirmationOrder",
+    "pages/comment/comment",
+    "pages/goodsDetails/goodsDetails",
+    "pages/consumer/consumer",
+    "pages/balance/balance",
+    "pages/recharge/recharge",
+    "pages/distributionQRCode/distributionQRCode",
+    "pages/distributionCommission/distributionCommission",
+    "pages/distributionMoney/distributionMoney",
+    "pages/distributionExpressive/distributionExpressive",
+    "pages/distributionTeam/distributionTeam",
+    "pages/classify/classify",
+    "pages/listPage/listPage",
+    "pages/my/my",
+    "pages/record/record",
+    "pages/coupons/coupons",
+    "pages/useCoupon/useCoupon",
+    "pages/allorder/allorder",
+    "pages/secKill/secKill",
+    "pages/orderDetails/orderDetails",
+    "pages/collage/collage",
+    "pages/cart/cart",
+    "pages/myadd/myadd",
+    "pages/toLogin/toLogin",
+    "pages/collection/collection",
+    "pages/payResults/payResults",
+    "pages/distributionIllustrate/distributionIllustrate",
+    "pages/about/about"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "战马家居商城",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fff",
+    "selectedColor": "#333",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_active.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "images/classify.png",
+        "selectedIconPath": "images/classify_active.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人中心",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_active.png"
+      }
+    ]
+  }
+}

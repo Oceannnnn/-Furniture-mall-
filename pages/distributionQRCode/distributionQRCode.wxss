@@ -1,0 +1,12 @@
+/* pages/distributionQRCode/distributionQRCode.wxss */
+.container {
+  box-sizing:border-box;
+} 
+.previewimg{
+	width:100%;
+	height:100vh;
+}
+.previewimg image{
+	width:100%;
+	height:100%;
+}

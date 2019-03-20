@@ -1,0 +1,56 @@
+/* pages/classify/classify.wxss */
+
+page {
+  background: #f5f5f5;
+}
+
+.scroll-view_H {
+  height: 100vh;
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.nav-name {
+  padding: 16px 0;
+}
+
+.nav-name.nav-hover {
+  background: #fff;
+  color: #e90606;
+  border-left: 3px solid #e90606;
+}
+
+.items {
+  padding: 20rpx;
+  width: 100%;
+}
+
+.item_right {
+  width: 58%;
+}
+
+.items image {
+  width: 200rpx;
+  height: 200rpx;
+  box-shadow: 1px 1px 5px #f3f3f3;
+}
+
+.nav_right {
+  /*右侧盒子使用了绝对定位*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  flex: 1;
+  width: 75%;
+  box-sizing: border-box;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.body_scroll {
+  justify-content: space-between;
+}

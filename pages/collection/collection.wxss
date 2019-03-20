@@ -1,0 +1,19 @@
+/* pages/collection/collection.wxss */
+@import "../allorder/allorder.wxss";
+.items_right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.yuan{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 1px solid #EA5D34;
+}
+.yuan_b{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 1px solid #999;
+}

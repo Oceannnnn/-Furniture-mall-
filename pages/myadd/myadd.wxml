@@ -1,0 +1,76 @@
+<!--pages/myadd/myadd.wxml-->
+<view class="memberinfo-warp">
+  <view hidden='{{!hidden}}' class='p_20'>
+    <view class="input-wrap">
+        <view class="input">
+            <view>联系人</view>
+            <input type="text"value="{{name}}" placeholder="请输入联系人" bindinput='bindNameChange'/>
+        </view>
+        <view class="input">
+            <view>电话</view>
+            <input type="number" value="{{phone}}" placeholder="请输入11位手机号码" bindinput='bindPhoneChange' maxlength='11' />
+        </view>
+        <view class="input">
+            <view>地区</view>
+            <view class='flex_cb'>
+              <input type="text" value="{{location}}" placeholder="小区/大厦/学校" bindinput='bindLocationChange'/>
+              <image src='../../images/add.png' class='location_img' bindtap='location'></image>
+            </view>
+        </view>
+        <view class="input">
+            <view>详细地址</view>
+            <view class='flex_cb'>
+              <input type="text" value="{{region}}" placeholder="如门牌号、单元室、楼栋号等" bindinput='bindAddressChange' />
+            </view>
+        </view>
+        <view class="flex_cb f_32 p_20">
+            <view>设为默认地址</view>
+             <switch bindchange="switchChange" color="#E90606" checked="{{checked}}"/>
+        </view>
+    </view>
+    <view class='flex_i submit_btn'>
+      <button bindtap='write' class="sub-btn btn cancel">取消</button>
+      <button bindtap='submit' class="sub-btn btn">保存</button>
+    </view>
+  </view>
+  <view hidden='{{hidden}}'>
+    <view wx:if= "{{myaddList!=''}}">
+      <view class='bor_bom bg_f' wx:for="{{myaddList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+        <view class='bor_b p_20' bindtap="{{isChoose==1?'chooseAddress':''}}" data-name="{{itemName.name}}" data-phone="{{itemName.mobile}}" data-location="{{itemName.region}}" data-region="{{itemName.detail}}" data-id='{{itemName.id}}' data-default="{{itemName.default}}">
+          <view class='flex_i f_32'>
+            <view class='name'>{{itemName.name}}</view>
+            <view class='phone ml_20'>{{itemName.mobile}}</view>
+          </view>
+          <view class='flex f_32 mt_10 myAddress'>
+            <view class='f_28'>{{itemName.region}}{{itemName.detail}}</view>
+          </view>
+        </view>
+        <view class='flex_cb p_20'>
+          <view class='moren f_28 mr_20' wx:if="{{itemName.default==1}}">
+            默认
+          </view>
+          <view></view>
+          <view class='flex_i'>
+            <view class='f_28 c_999 flex_i mr_20' bindtap='edit' data-id="{{itemName.id}}" data-name="{{itemName.name}}" data-phone="{{itemName.mobile}}" data-location="{{itemName.region}}" data-region="{{itemName.detail}}" data-default="{{itemName.default}}">
+              <i class="iconfont icon-bianji"></i>
+              <view class='ml_10'>编辑</view>
+            </view>
+            <view class='f_28 c_999 flex_i mr_10' data-id="{{itemName.id}}" data-index="{{index}}" bindtap='addressDel'>
+              <i class="iconfont icon-shanchu"></i>
+              <view class='ml_10'>删除</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class='flex_af f_32'>
+      <image src='../../images/add.png' class='add_img'></image>
+      快去添加收货地址吧！
+    </view>
+    <view class='bianji bg_f'>
+      <form report-submit='true' bindsubmit='write'>
+        <button class="sub-btn" form-type='submit'>添加收货地址</button>
+      </form>
+    </view>
+  </view>
+</view>

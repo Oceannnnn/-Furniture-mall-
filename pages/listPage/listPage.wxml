@@ -1,0 +1,31 @@
+<!--pages/listPage/listPage.wxml-->
+<view class="tabTit flex_i">
+ <!-- {{index==0?'':'on'}} -->
+  <view class="flex1 {{item.tab==currentId?'active':''}} {{index==0?'':'on'}} {{index==2?'flex_ja':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab" data-tab="{{item.tab}}" data-type='{{item.type}}' data-triangle="{{index==2?'triangle':''}}">
+    <text>{{item.name}}</text>
+    <view class='flex_af ml_10' wx:if="{{index==2}}">
+      <view class="triangle_border_up mb_10 {{triangle==0?'on':''}} triangle"></view>
+      <view class="triangle_border_down {{triangle==1?'on':''}} triangle"></view>
+    </view>
+  </view>
+</view>
+<view class="items-body flex_f" wx:if="{{itemsList!=''}}">
+  <view wx:for="{{itemsList}}" wx:key="{{itemName}}" wx:for-item="itemName" class='item_list p_20 bor_b pr'>
+    <form report-submit='true' class='formBtn' data-id='{{itemName.id}}' data-type='0' bindsubmit='details'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <view class="item-img mb_20">
+      <image class="lazy" src="{{itemName.pic}}" />
+    </view>
+    <view class='sheng2 f_32 mb_20 contentText'>{{itemName.name}}</view>
+    <view class='flex_i f_30'>
+      <view class="price">￥{{itemName.price}}</view>
+      <view class="text_l c_999 ml_20" wx:if="{{itemName.is_discount==1}}">￥{{itemName.discount_before}}</view>
+    </view>
+  </view>
+</view>
+<view wx:else class='flex_af'>
+  <image src='../../images/zanwu.png' class='zanwu mb_20'></image>
+  <text class='f_32 c_999'>暂无数据</text>
+</view>
+

@@ -1,0 +1,17 @@
+/* pages/logistics/logistics.wxss */
+.yuan{
+  width: 15rpx;
+  height: 15rpx;
+  background: #999;
+  border-radius: 50%;
+}
+.yuan.on{
+  background: #029F53;
+  width: 20rpx;
+  height: 20rpx;
+}
+.xian{
+  width: 1px;
+  height: 80rpx;
+  background: #999;
+}

@@ -1,0 +1,18 @@
+/* pages/orderDetails/orderDetails.wxss */
+@import "../../font/iconfont.wxss";
+@import "../confirmationOrder/confirmationOrder.wxss";
+.footer{
+  justify-content: flex-end;
+}
+.del{
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+.comfirm{
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  margin: 0 10rpx;
+  padding: 0 20rpx;
+}

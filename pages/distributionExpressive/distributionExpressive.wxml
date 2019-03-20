@@ -1,0 +1,19 @@
+<!--pages/distributionExpressive/distributionExpressive.wxml-->
+<view wx:if="{{list!=''}}">
+  <view wx:for="{{list}}" wx:key="{{itemName}}" wx:for-item="itemName" class='p_40 bor_b'>
+    <view class='flex_cb mb_10 f_34'>
+      <view>{{itemName.status}}<text class='c_999 ml_10 f_28'>({{itemName.type}})</text></view>
+      <view>￥{{itemName.money}}</view>
+    </view>
+    <view class='mb_10 c_999 f_32'>
+      订单号：{{itemName.order_no}}
+    </view>
+    <view class='c_999 f_28'>
+      {{itemName.create_time}}
+    </view>
+  </view>
+</view>
+<view wx:else class='flex_af'>
+  <image src='../../images/record.png' class='zanwu mb_20'></image>
+  <text class='f_32 c_999'>暂无提现记录</text>
+</view>

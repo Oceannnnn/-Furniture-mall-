@@ -1,0 +1,13 @@
+/* pages/distributionTeam/distributionTeam.wxss */
+@import "../consumer/consumer.wxss";
+page{
+  background: #fff;
+}
+.team_img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.nav-name{
+  width: 33.33%;
+}

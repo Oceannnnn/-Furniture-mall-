@@ -1,0 +1,36 @@
+<!--pages/comment/comment.wxml-->
+<view class='flex_cb p_40 bor_bom f_28'>
+  <view>
+   订单号：{{order_no}}
+  </view>
+  <view class='f_30'>
+   待评价
+  </view>
+</view>
+<view class='goodsListBody'>
+  <view wx:for="{{goodsList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+    <view class='flex_i p_20 bor_bom'>
+      <image src='{{itemName.pic}}' class='goods_img mr_20'></image>
+      <view class='f_30 flex_fs goods_right'>
+        <view>
+          <view class='sheng'>{{itemName.name}}</view>
+          <view class='mt_10 f_28 c_999 sheng'>{{itemName.key_name}}</view>
+        </view>
+        <view class='flex_cb'>
+          <view class='c_ea5 f_32'>{{itemName.subtotal}}</view>
+          X{{itemName.count}}
+        </view>
+      </view>
+    </view>
+    <view class='p_20 f_30 bor_bom'>
+      <view class='mb_20'>评价：</view>
+      <textarea placeholder='说说你的使用心得，分享给想买的他们吧' bindinput='bindinput' data-index='{{index}}' value='{{itemName.value}}' maxlength='150'></textarea>
+    </view>
+  </view>
+</view>
+<view class='footer b_029 c_f f_30 pr'>
+  <form report-submit='true' class='formBtn' bindsubmit='comment'>
+    <button class='formBtn' form-type='submit'></button>
+  </form>
+  <text>立即评价</text> 
+</view>

@@ -1,0 +1,12 @@
+/* pages/comment/comment.wxss */
+@import "../../font/iconfont.wxss";
+@import "../orderDetails/orderDetails.wxss";
+textarea{
+  height: 200rpx;
+}
+.goodsListBody{
+  margin-bottom: 120rpx;
+}
+.footer{
+  z-index: 1000;
+}

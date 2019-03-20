@@ -1,0 +1,61 @@
+<!--pages/allorder/allorder.wxml-->
+<view class="nav-scroll f_32 bor_bom">
+    <scroll-view class="scroll-view_H" scroll-x="true" scroll-into-view="{{allorderType}}" scroll-left="100">
+      <view wx:for="{{HeaderList}}" wx:key="item" data-type='{{item.type}}' data-id="{{item.id}}" bindtap='toList' class='nav-name'>
+        <text class="{{item.id == currentId ? 'nav-hover' : ''}} p_20" id="{{item.type}}">{{item.name}}</text>
+      </view>
+    </scroll-view>
+</view>
+<view>
+  <view wx:if="{{orderList!=''}}" class='body_scroll flex'>
+    <view class='items mb_20 flex_fa bor_bom f_30' wx:for="{{orderList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+      <view class="flex_cb p_20">
+        <view class="order-time">{{itemName.create_time}}</view>
+        <view class="order-number flex_i">订单号：<view class="c_999">{{itemName.order_no}}</view></view>
+      </view>
+      <view class="choose_p flex_i mb_10 pr" wx:for="{{itemName.product_list}}" wx:key="{{item}}">
+        <form report-submit='true' class='formBtn' data-id="{{status!=3?itemName.id:item.product_id}}" data-type="{{status}}" bindsubmit='{{status!=3?"orderDetails":"toListDetails"}}'>
+          <button class='formBtn' form-type='submit'></button>
+        </form>
+        <view class="items_left">
+          <image src="{{item.pic}}"/>
+        </view>
+        <view class="items_right ml_20">
+          <view class='sheng2'>{{item.name}}</view>
+          <view class="mt_10 c_999 f_28 sheng">{{item.key_name}}</view>
+          <view class="mt_10 flex_cb">
+            <view class="new_price">
+              ￥{{item.price}}
+            </view>
+            <view class="c_999">
+              X{{item.count}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="all p_20 {{status!=3?'bor_b':''}}">
+        合计:<view class="new_price">￥{{itemName.order_money}}</view>
+      </view>
+      <view class="all p_20 f_30 mt_10" wx:if="{{status!=3}}">
+        <view class="order-down" wx:if="{{itemName.status==0}}">已取消</view>
+        <view class="order-down" wx:if="{{itemName.status==1||itemName.status==6}}" bindtap='confirm' data-id="{{itemName.id}}" data-type='q'>取消订单</view>
+        <view class="order-down" wx:if="{{itemName.status==3}}" bindtap='logistics' data-id="{{itemName.id}}">查看物流</view>
+        <view class="order-down" wx:if="{{itemName.status==5||itemName.status==4||itemName.status==7}}" bindtap='confirm' data-id="{{itemName.id}}" data-type='s'>删除订单</view>
+        <view class='order-on order-down' wx:if="{{itemName.status==1}}" bindtap='orderDetails' data-id="{{itemName.id}}" data-type="{{status}}">立即付款</view>
+        <view class='order-on order-down' wx:if="{{itemName.status==2}}" bindtap='remind' data-id='{{itemName.id}}'>提醒发货</view>
+        <view class='order-on order-down pr' wx:if="{{itemName.status==6}}">
+          <button open-type='share' bindtap='pinShare' class='pinShare' data-index='{{index}}'></button>
+          立即分享
+        </view>
+        <view class='order-on order-down' wx:if="{{itemName.status==3}}" bindtap='confirm' data-id='{{itemName.id}}' data-type='h'>确认收货</view>
+        <view class='order-on order-down' wx:if="{{itemName.status==5}}">已完成</view>
+        <view class='order-on order-down' wx:if="{{itemName.status==7}}">已退款</view>
+        <view class='order-on order-down' wx:if="{{itemName.status==4}}" bindtap='comment' data-id='{{itemName.id}}' data-order_no='{{itemName.order_no}}' data-goodslist='{{itemName.product_list}}'>立即评价</view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class='flex_af'>
+    <image src='../../images/zanwu.png' class='zanwu mb_20'></image>
+    <text class='f_32 c_999'>暂无数据</text>
+  </view>
+</view>
